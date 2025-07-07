@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Langya API Styles Test</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/edbertw/langya_api@main/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        h2 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Langya API Styles Test</h1>
+    
+    <div class="test-section">
+        <h2>Chatbot Container</h2>
+        <div class="chatbot-container">
+            <div class="chatbot-window">
+                <div class="chatbot-messages">
+                    <div class="chatbot-message bot">
+                        Hello! I'm a bot message.
+                        <div class="chatbot-message-time">10:30 AM</div>
+                    </div>
+                    <div class="chatbot-message user">
+                        Hi! I'm a user message.
+                        <div class="chatbot-message-time">10:31 AM</div>
+                    </div>
+                    <div class="chatbot-message bot">
+                        This is a longer bot message to demonstrate how word wrapping works in the chat interface. It should automatically break to the next line when it reaches the maximum width.
+                        <div class="chatbot-message-time">10:32 AM</div>
+                    </div>
+                </div>
+                <div class="chatbot-input">
+                    <input type="text" class="chatbot-input-field" placeholder="Type your message...">
+                    <button class="chatbot-send">Send</button>
+                    <button class="chatbot-send disabled" disabled>Disabled</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Room Selection</h2>
+        <div class="room-selection">
+            <button class="create-room-btn">Create New Room</button>
+            <ul class="room-list">
+                <li class="room-item">General Chat</li>
+                <li class="room-item active">Technical Support</li>
+                <li class="room-item">Random Discussions</li>
+                <li class="room-item">Project Ideas</li>
+            </ul>
+            <select class="bot-selector">
+                <option>GPT-3.5</option>
+                <option>GPT-4</option>
+                <option>Claude</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Token Sidebar</h2>
+        <button onclick="document.getElementById('token-sidebar').style.display='block'">Show Token Sidebar</button>
+        <div id="token-sidebar" class="token-sidebar" style="position: relative; left: auto; transform: none; display: block; margin-top: 20px;">
+            <span class="sidebar-close">×</span>
+            <p>You're running low on tokens! Please upgrade your plan to continue using the service.</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Login Sidebar</h2>
+        <button onclick="document.getElementById('login-sidebar').style.display='block'">Show Login Sidebar</button>
+        <div id="login-sidebar" class="login-sidebar" style="position: relative; left: auto; transform: none; display: block; margin-top: 20px;">
+            <span class="sidebar-close">×</span>
+            <p>Please login to access all features.</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Tokens Display</h2>
+        <div class="tokens-display" style="padding: 15px; background: #f9f9f9; border-radius: 4px;">
+            <span>Tokens remaining: 1,234</span>
+            <button class="edit-save-dir-btn">Edit save directory</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Mobile View Test</h2>
+        <p>Resize your browser window to below 768px width to test mobile styles.</p>
+        <div class="chatbot-container" style="max-width: 400px;">
+            <div class="chatbot-window">
+                <div class="chatbot-messages">
+                    <div class="chatbot-message bot">
+                        Mobile view test message.
+                        <div class="chatbot-message-time">11:45 AM</div>
+                    </div>
+                </div>
+                <div class="chatbot-input">
+                    <input type="text" class="chatbot-input-field" placeholder="Type...">
+                    <button class="chatbot-send">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple script to demonstrate interactive elements
+        document.querySelectorAll('.sidebar-close').forEach(closeBtn => {
+            closeBtn.addEventListener('click', function() {
+                this.parentElement.style.display = 'none';
+            });
+        });
+
+        document.querySelectorAll('.room-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.room-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
